@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaan Telefoniste · AI-telefoniste voor tandartspraktijken</title>
+<meta name="description" content="Nooit meer een gemist telefoontje. Een Nederlandstalige AI-telefoniste die opneemt als uw balie het druk heeft, tijdens de lunch en na sluitingstijd.">
+<style>
+  :root{
+    --ink:#14212b; --muted:#566673; --line:#dfe6ea; --bg:#f7fafb; --card:#fff;
+    --accent:#0f7c74; --accent-ink:#fff; --soft:#e6f3f1; --warn:#9a5b00;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:700;letter-spacing:-.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+  nav a:hover{color:var(--ink)}
+  .lang{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:4px 12px;font-size:14px;cursor:pointer;margin-left:18px}
+  .hero{padding:64px 0 40px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 16px;letter-spacing:-.02em;max-width:760px}
+  .hero p{font-size:19px;color:var(--muted);max-width:640px;margin:0 0 28px}
+  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:600}
+  .btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent);margin-left:10px}
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  h2{font-size:28px;letter-spacing:-.01em;margin:0 0 8px}
+  .lead{color:var(--muted);margin:0 0 26px;max-width:680px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:16px}
+  .num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:700;align-items:center;justify-content:center;margin-bottom:10px}
+  .stat{font-size:34px;font-weight:700;color:var(--accent);line-height:1.1}
+  ul.check{list-style:none;padding:0;margin:0}
+  ul.check li{padding:7px 0 7px 28px;position:relative;border-bottom:1px solid var(--line)}
+  ul.check li:last-child{border-bottom:0}
+  ul.check li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  ul.cross li:before{content:"✕";color:var(--warn)}
+  .video{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .note{font-size:14px;color:var(--muted);margin-top:8px}
+  .price{font-size:36px;font-weight:700}
+  .price small{font-size:15px;font-weight:400;color:var(--muted)}
+  .tag{display:inline-block;background:var(--soft);color:var(--accent);font-size:13px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600}
+  details p{color:var(--muted);margin:10px 0 0}
+  .flow{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:stretch}
+  .flow .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:15px}
+  .flow .step b{display:block;margin-bottom:4px}
+  footer{padding:40px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  [data-en]{display:none}
+  body.en [data-nl]{display:none}
+  body.en [data-en]{display:revert}
+  @media (max-width:640px){nav a{display:none}.btn.ghost{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">Zaan <span>Telefoniste</span></div>
+    <nav>
+      <a href="#hoe" data-nl>Hoe het werkt</a><a href="#hoe" data-en>How it works</a>
+      <a href="#demo">Demo</a>
+      <a href="#privacy" data-nl>Privacy & wet</a><a href="#privacy" data-en>Privacy & law</a>
+      <a href="#prijs" data-nl>Prijzen</a><a href="#prijs" data-en>Prices</a>
+      <button class="lang" onclick="document.body.classList.toggle('en')"><span data-nl>English</span><span data-en>Nederlands</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <h1 data-nl>Nooit meer een gemist telefoontje in uw tandartspraktijk.</h1>
+  <h1 data-en>Never miss a phone call at your dental practice again.</h1>
+  <p data-nl>Een Nederlandstalige AI-telefoniste die opneemt als uw balie het druk heeft, tijdens de lunch en na sluitingstijd. Ze noteert afspraakverzoeken en nieuwe patiënten, beantwoordt vaste vragen en stuurt u direct een samenvatting. Uw eigen nummer blijft hetzelfde.</p>
+  <p data-en>A Dutch-speaking AI receptionist that answers when your front desk is busy, during lunch and after closing time. It takes appointment requests and new patients, answers the usual questions and sends you a summary straight away. Your own phone number stays the same.</p>
+  <a class="btn" href="#demo" data-nl>Luister naar een voorbeeld</a><a class="btn" href="#demo" data-en>Hear an example</a>
+  <a class="btn ghost" href="#pilot" data-nl>2 weken gratis proberen</a><a class="btn ghost" href="#pilot" data-en>Try it free for 2 weeks</a>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 data-nl>Waar de telefoon misgaat</h2><h2 data-en>Where the phone goes wrong</h2>
+    <p class="lead" data-nl>Veel praktijken in Zaandam zijn telefonisch niet bereikbaar tijdens de koffie en de lunch, en na 17:00 gaat alles naar een bandje. Juist dan bellen nieuwe patiënten.</p>
+    <p class="lead" data-en>Many practices in Zaandam can't be reached by phone during the coffee break and lunch, and after 17:00 everything goes to a recording. That is exactly when new patients call.</p>
+    <div class="grid">
+      <div class="card"><div class="stat">08:00–09:30</div><p data-nl>De ochtendspits: iedereen belt tegelijk, de balie staat ook patiënten te helpen.</p><p data-en>The morning rush: everyone calls at once while the desk is helping patients.</p></div>
+      <div class="card"><div class="stat">12:00–13:00</div><p data-nl>Lunch: de telefoon staat uit. Wie belt, belt morgen misschien een andere praktijk.</p><p data-en>Lunch: the phone is off. Whoever calls may try another practice tomorrow.</p></div>
+      <div class="card"><div class="stat">17:00–22:00</div><p data-nl>Na sluitingstijd: patiënten willen een afspraak verzetten of zich inschrijven, en krijgen een bandje.</p><p data-en>After closing: patients want to move an appointment or sign up, and get a recording.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="hoe">
+  <div class="wrap">
+    <h2 data-nl>Hoe het werkt</h2><h2 data-en>How it works</h2>
+    <p class="lead" data-nl>U houdt uw eigen nummer. U stelt bij uw telefoonaanbieder in wanneer een gesprek doorgaat naar de AI-telefoniste. Dat kost ongeveer 10 minuten en is altijd terug te zetten.</p>
+    <p class="lead" data-en>You keep your own number. In your phone provider's settings you choose when a call goes on to the AI receptionist. It takes about 10 minutes and you can switch it back any time.</p>
+    <div class="flow">
+      <div class="step"><b data-nl>1. Patiënt belt uw nummer</b><b data-en>1. Patient calls your number</b><span data-nl>Uw balie neemt op zoals altijd.</span><span data-en>Your desk answers as usual.</span></div>
+      <div class="step"><b data-nl>2. Niemand neemt op?</b><b data-en>2. Nobody picks up?</b><span data-nl>Na bijvoorbeeld 20 seconden, in de pauze of na sluitingstijd gaat het gesprek door.</span><span data-en>After e.g. 20 seconds, during the break or after hours, the call is passed on.</span></div>
+      <div class="step"><b data-nl>3. De AI-telefoniste neemt op</b><b data-en>3. The AI receptionist answers</b><span data-nl>Ze zegt eerst dat ze een digitale assistent is, en helpt dan de beller.</span><span data-en>It first says it is a digital assistant, then helps the caller.</span></div>
+      <div class="step"><b data-nl>4. U krijgt een samenvatting</b><b data-en>4. You get a summary</b><span data-nl>Naam, telefoonnummer, wat de patiënt wil. Uw assistent plant het in uw agenda.</span><span data-en>Name, phone number, what the patient wants. Your assistant puts it in your calendar.</span></div>
+    </div>
+    <div class="grid" style="margin-top:22px">
+      <div class="card">
+        <h3 data-nl>Wat ze doet</h3><h3 data-en>What it does</h3>
+        <ul class="check" data-nl>
+          <li>Afspraak aanvragen, verzetten of afzeggen</li>
+          <li>Nieuwe patiënten inschrijven (naam, geboortedatum, verzekeraar)</li>
+          <li>Vragen over openingstijden, adres, parkeren, kosten</li>
+          <li>Spreekt Nederlands, Engels, Turks, Arabisch en Pools</li>
+          <li>Stuurt elk gesprek als korte samenvatting naar uw e-mail</li>
+        </ul>
+        <ul class="check" data-en>
+          <li>Request, move or cancel an appointment</li>
+          <li>Sign up new patients (name, date of birth, insurer)</li>
+          <li>Questions about hours, address, parking, costs</li>
+          <li>Speaks Dutch, English, Turkish, Arabic and Polish</li>
+          <li>Sends each call as a short summary to your email</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-nl>Wat ze nooit doet</h3><h3 data-en>What it never does</h3>
+        <ul class="check cross" data-nl>
+          <li>Medisch advies geven of beoordelen hoe erg een klacht is</li>
+          <li>Doen alsof ze een mens is</li>
+          <li>Een beller vasthouden die een medewerker wil spreken</li>
+          <li>Bij pijn, zwelling of bloeding zelf iets oplossen: tijdens openingstijden direct naar uw balie, daarbuiten uw spoednummer</li>
+        </ul>
+        <ul class="check cross" data-en>
+          <li>Give medical advice or judge how serious a complaint is</li>
+          <li>Pretend to be a person</li>
+          <li>Hold on to a caller who wants a staff member</li>
+          <li>Handle pain, swelling or bleeding itself: during opening hours straight to your desk, after hours your emergency number</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <h2 data-nl>Zo klinkt een AI-telefoniste</h2><h2 data-en>What an AI receptionist sounds like</h2>
+    <p class="lead" data-nl>Voorbeelden van dit soort technologie bij tandartspraktijken. Deze video's zijn gemaakt door andere bedrijven en zijn in het Engels. Tijdens de proefperiode krijgt u een Nederlands testnummer met de gegevens van uw eigen praktijk, zodat u zelf kunt bellen.</p>
+    <p class="lead" data-en>Examples of this kind of technology at dental practices. These videos were made by other companies and are in English. During the trial you get a Dutch test number with your own practice's details, so you can call it yourself.</p>
+    <div class="grid">
+      <div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/P_P6Kwb9Jb0" title="AI receptionist dental call" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="note" data-nl>Een echt telefoontje naar een tandartspraktijk, 32 seconden (video: ReplyQuik).</p><p class="note" data-en>A real call to a dental practice, 32 seconds (video: ReplyQuik).</p>
+      </div>
+      <div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/4K_R-PFpVbg" title="New patient call" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="note" data-nl>Een nieuwe patiënt belt (video: Blumberg Digital).</p><p class="note" data-en>A new patient calls (video: Blumberg Digital).</p>
+      </div>
+      <div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/dlAsaT_Mvco" title="Switches language mid-call" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="note" data-nl>Wisselt midden in het gesprek van taal (video: Imfiable AI).</p><p class="note" data-en>Switches language in the middle of the call (video: Imfiable AI).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2 data-nl>Privacy en de wet</h2><h2 data-en>Privacy and the law</h2>
+    <p class="lead" data-nl>Een AI-telefoniste is toegestaan in Nederland. Een tandarts gebruikt er volgens de NOS al een vanwege het tekort aan baliepersoneel. Wel gelden deze regels, en wij houden ons eraan:</p>
+    <p class="lead" data-en>An AI receptionist is allowed in the Netherlands. According to NOS, a Dutch dentist already uses one because of a shortage of front-desk staff. These rules apply, and we follow them:</p>
+    <div class="grid">
+      <div class="card"><h3 data-nl>Zegt dat ze AI is</h3><h3 data-en>Says it is AI</h3><p data-nl>De Europese AI-wet (artikel 50, sinds 2 augustus 2026) verplicht dit. Elk gesprek begint ermee.</p><p data-en>The EU AI Act (Article 50, since 2 August 2026) requires it. Every call starts with it.</p></div>
+      <div class="card"><h3 data-nl>Verwerkersovereenkomst</h3><h3 data-en>Data processing agreement</h3><p data-nl>U blijft eigenaar van de gegevens. Wij tekenen een verwerkersovereenkomst volgens de AVG voordat er één patiënt belt.</p><p data-en>You stay the owner of the data. We sign a data processing agreement under the GDPR (AVG) before a single patient calls.</p></div>
+      <div class="card"><h3 data-nl>Alleen in de EU</h3><h3 data-en>EU only</h3><p data-nl>Gesprekken worden verwerkt op servers in de EU. Geen opnames standaard. Samenvattingen worden na 30 dagen gewist.</p><p data-en>Calls are processed on servers in the EU. No recordings by default. Summaries are deleted after 30 days.</p></div>
+      <div class="card"><h3 data-nl>Geen medisch advies</h3><h3 data-en>No medical advice</h3><p data-nl>Ze beoordeelt geen klachten. Bij spoed gaat het gesprek naar een mens of naar uw spoednummer.</p><p data-en>It doesn't judge complaints. In an emergency the call goes to a person or to your emergency number.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prijs">
+  <div class="wrap">
+    <h2 data-nl>Prijzen</h2><h2 data-en>Prices</h2>
+    <p class="lead" data-nl>Maandelijks opzegbaar. Geen installatiekosten voor de eerste 5 praktijken in de Zaanstreek.</p>
+    <p class="lead" data-en>Cancel any month. No setup fee for the first 5 practices in the Zaan area.</p>
+    <div class="grid">
+      <div class="card" id="pilot">
+        <span class="tag" data-nl>Start hier</span><span class="tag" data-en>Start here</span>
+        <h3 data-nl>Proefperiode</h3><h3 data-en>Trial</h3>
+        <div class="price">€0 <small data-nl>/ 2 weken</small><small data-en>/ 2 weeks</small></div>
+        <p data-nl>Op uw echte nummer, bij geen gehoor en na sluitingstijd. Daarna beslist u.</p><p data-en>On your real number, when nobody answers and after hours. Then you decide.</p>
+      </div>
+      <div class="card">
+        <h3 data-nl>Basis</h3><h3 data-en>Basic</h3>
+        <div class="price">€149 <small data-nl>/ maand</small><small data-en>/ month</small></div>
+        <p data-nl>Bij geen gehoor, pauzes en na sluitingstijd. Tot 600 belminuten, daarna €0,25 per minuut.</p><p data-en>When nobody answers, breaks and after hours. Up to 600 call minutes, then €0.25 per minute.</p>
+      </div>
+      <div class="card">
+        <h3 data-nl>Volledig</h3><h3 data-en>Full</h3>
+        <div class="price">€449 <small data-nl>/ maand</small><small data-en>/ month</small></div>
+        <p data-nl>Neemt elk gesprek als eerste op. Tot 2.500 belminuten, daarna €0,20 per minuut.</p><p data-en>Answers every call first. Up to 2,500 call minutes, then €0.20 per minute.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-nl>Veelgestelde vragen</h2><h2 data-en>Common questions</h2>
+    <details><summary data-nl>Vinden patiënten het niet vervelend om met een computer te praten?</summary><summary data-en>Won't patients mind talking to a computer?</summary>
+      <p data-nl>Ze krijgt alleen de gesprekken die nu niet worden opgenomen. Een beller die liever een mens spreekt, zegt dat en wordt teruggebeld.</p><p data-en>It only gets the calls nobody answers today. A caller who prefers a person says so and gets a call back.</p></details>
+    <details><summary data-nl>Kan ze direct in mijn agenda plannen?</summary><summary data-en>Can it book straight into my calendar?</summary>
+      <p data-nl>In de proefperiode stuurt ze u het verzoek en plant uw assistent het in. Daarna kijken we of uw praktijksoftware een koppeling toelaat.</p><p data-en>During the trial it sends you the request and your assistant books it. After that we check whether your practice software allows a direct link.</p></details>
+    <details><summary data-nl>Wat als het systeem uitvalt?</summary><summary data-en>What if the system goes down?</summary>
+      <p data-nl>Dan gaat het gesprek naar uw gewone voicemail, zoals nu. Wij houden het systeem dag en nacht in de gaten en u hoort het meteen.</p><p data-en>Then the call goes to your normal voicemail, as today. We watch the system day and night and tell you straight away.</p></details>
+    <details><summary data-nl>Vervangt dit mijn baliemedewerker?</summary><summary data-en>Does this replace my front-desk staff?</summary>
+      <p data-nl>Nee. Ze vangt de drukte, de pauze en de avond op, zodat uw balie zich kan richten op de patiënt die voor ze staat.</p><p data-en>No. It catches the rush, the break and the evening, so your desk can focus on the patient standing in front of them.</p></details>
+    <details><summary data-nl>Hoe lang duurt het om te starten?</summary><summary data-en>How long does it take to start?</summary>
+      <p data-nl>Ongeveer een week. Wij vullen de gegevens van uw praktijk in, u belt het testnummer, en daarna zet u het doorschakelen aan.</p><p data-en>About a week. We fill in your practice's details, you call the test number, then you switch on call forwarding.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-nl><b>Zaan Telefoniste</b> is een nieuw project uit Zaandam. We starten met 5 tandartspraktijken in de buurt. Surya komt graag langs om het te laten zien.</p>
+    <p data-en><b>Zaan Telefoniste</b> is a new project from Zaandam. We are starting with 5 dental practices nearby. Surya is happy to drop by and show it.</p>
+  </div>
+</footer>
+</body>
+</html>
